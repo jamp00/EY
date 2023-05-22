@@ -59,14 +59,14 @@ public class JwtTokenUtil implements Serializable {
 		@SuppressWarnings("deprecation")
 		String token = Jwts
 				.builder()
-				.setId("softtekJWT")
+				.setId(username)
 				.setSubject(username)
 				.claim("authorities",
 						grantedAuthorities.stream()
 								.map(GrantedAuthority::getAuthority)
 								.collect(Collectors.toList()))
 				.setIssuedAt(new Date(System.currentTimeMillis()))
-				.setExpiration(new Date(System.currentTimeMillis() + 600000))
+				.setExpiration(new Date(System.currentTimeMillis() + 9000000))
 				.signWith(SignatureAlgorithm.HS512,
 						secretKey.getBytes()).compact();
 
