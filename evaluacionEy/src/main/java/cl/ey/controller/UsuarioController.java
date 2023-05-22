@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cl.ey.implement.UsuarioImplement;
-import cl.ey.model.Usuarios;
+import cl.ey.model.Usuario;
 
 @RestController
 @RequestMapping(value="/usuario/", produces=MediaType.APPLICATION_JSON_VALUE, consumes=MediaType.APPLICATION_JSON_VALUE)
@@ -28,7 +28,7 @@ public class UsuarioController {
 
 	// Crea registro Usuario
 	@PostMapping("/registra")
-	public ResponseEntity<Object> registroUsuario(HttpServletRequest request, @RequestBody @Valid Usuarios usuario ) {
+	public ResponseEntity<Object> registroUsuario(HttpServletRequest request, @RequestBody @Valid Usuario usuario ) {
 		
 		if (usuarioImplement.existEmail(usuario.getEmail())) {
 
