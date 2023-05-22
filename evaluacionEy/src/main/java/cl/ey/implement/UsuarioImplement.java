@@ -21,9 +21,8 @@ public class UsuarioImplement {
 	public boolean existEmail(String email) {
 
 		Usuarios usuario = usuariosRepository.findByEmail(email);
-		Optional<Usuarios> usuarioOp = Optional.ofNullable(usuario);
 
-		return (usuarioOp.isPresent())? true: false;
+		return Optional.ofNullable(usuario).isPresent();
 
 	}
 	
